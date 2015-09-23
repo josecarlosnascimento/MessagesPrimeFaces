@@ -9,43 +9,46 @@
 <f:view>
 	<h:head>
 		<style type="text/css">
-.ui-widget {
-	font-size: 12px !important;
-}
-</style>
+			.ui-widget {
+				font-size: 12px !important;
+			}
+		</style>
 	</h:head>
-
-	<h:body>
+		<h:body>
 
 		<h:form>
 			<p:commandButton value="Info" icon="ui-icon-script"	actionListener="#{dialogBean.showMessageInfo()}" />
 			<p:commandButton value="Erro" icon="ui-icon-script"	actionListener="#{dialogBean.showMessageError()}" />
 			<p:commandButton value="Alerta" icon="ui-icon-script" actionListener="#{dialogBean.showMessageAlerta()}" />
 			<p:commandButton value="Erro Fatal" icon="ui-icon-script" actionListener="#{dialogBean.showMessageErrorFatal()}" />
-			<p:commandButton value="Confirm" icon="ui-icon-script"	onclick="PF('confirm').show()" />
+			<p:commandButton value="Confirm" icon="ui-icon-script" onclick="PF('confirm').show()" />
 		</h:form>
-		<p:dialog id="confirm" widgetVar="confirm" resizable="false" draggable="false" modal="true" showEffect="fade" hideEffect="fade">
-			<f:facet name="header">
-				<h:outputText value="Confirm" />
-			</f:facet>
-			<table>
-				<tr>
-					<td>
-						<p:graphicImage url="images/question.png" width="27" height="27" styleClass="margin-left:1px" />
-					</td>
-					<td>
-						<p:outputLabel value="Deseja continuar?" />
-					</td>
-				</tr>
-				<tr align="center">
-					<td colspan="2"><p:commandButton value="Sim"
-							onclick="PF('confirm').hide()" /> <p:commandButton value="Não"
-							onclick="PF('confirm').hide()" /></td>
-				</tr>
-			</table>
-		</p:dialog>
-		<p:ajaxStatus onstart="PF('carregando').show()"
-			onsuccess="PF('carregando').hide()">
+			
+			<p:dialog id="confirm" widgetVar="confirm" resizable="false" draggable="false" modal="true" showEffect="fade" hideEffect="fade">
+				
+				<f:facet name="header">
+					<h:outputText value="Confirm" />
+				</f:facet>
+				<table>
+					<tr>
+						<td>
+							<p:graphicImage url="images/question.png" width="27" height="27" styleClass="margin-left:1px" />
+						</td>
+						<td>
+							<p:outputLabel value="Deseja continuar?" />
+						</td>
+					</tr>
+					
+					<tr align="center">
+						<td colspan="2">
+							<p:commandButton value="Sim" onclick="PF('confirm').hide()" />
+							<p:commandButton value="Não" onclick="PF('confirm').hide()" />
+						</td>
+					</tr>
+				</table>
+			</p:dialog>
+			
+		<p:ajaxStatus onstart="PF('carregando').show()"	onsuccess="PF('carregando').hide()">
 			<f:facet name="start">
 				<p:outputLabel value="Carregando" />
 			</f:facet>
